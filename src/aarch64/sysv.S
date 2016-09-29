@@ -223,8 +223,8 @@ CNAME(ffi_call_SYSV):
 	.align 4
 CNAME(ffi_closure_SYSV_V):
 	cfi_startproc
-	stp     fp, x30, [sp, #-16]!
-	mov     fp, sp
+	stp     x29, x30, [sp, #-16]!
+	mov     x29, sp
 	sub sp, sp, #ffi_closure_SYSV_FS-16
 	cfi_def_cfa(x29, 16)
 	cfi_offset(x30, -8)
@@ -248,8 +248,8 @@ CNAME(ffi_closure_SYSV_V):
 	.align	4
 CNAME(ffi_closure_SYSV):
 	cfi_startproc
-	stp     fp, x30, [sp, #-16]!
-	mov     fp, sp
+	stp     x29, x30, [sp, #-16]!
+	mov     x29, sp
 	sub sp, sp, #ffi_closure_SYSV_FS-16
 	cfi_def_cfa(x29, 16)
 	cfi_offset(x30, -8)
@@ -347,8 +347,8 @@ CNAME(ffi_closure_SYSV):
 	nop
 31:					/* reserved */
 99:
-	sub    sp, fp, #0
-	ldp     fp, lr, [sp], #16
+	sub    sp, x29, #0
+	ldp     x29, x30, [sp], #16
 	ret
 	cfi_endproc
 
